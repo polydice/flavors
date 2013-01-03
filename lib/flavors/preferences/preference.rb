@@ -1,6 +1,7 @@
-# -*- encoding : utf-8 -*-
-class Preference < ActiveRecord::Base
-  belongs_to :prefered, :polymorphic => true
+require 'active_record'
 
-  attr_accessible :name, :value
+module Flavors
+  class Preference < ::ActiveRecord::Base
+    belongs_to :prefered, :polymorphic => true
+  end
 end

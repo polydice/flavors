@@ -1,7 +1,8 @@
-# -*- encoding : utf-8 -*-
+require 'active_support/concern'
+
 module Flavors
   module Preferences
-    extend ActiveSupport::Concern
+    extend ::ActiveSupport::Concern
 
     included do
       @@preferences = {}
@@ -9,7 +10,7 @@ module Flavors
 
     module ClassMethods
       def preference(name, options = {})
-        has_many :preferences, :as => :prefered
+        has_many :preferences, :as => :prefered, :class_name => "Flavors::Preference"
 
         preferences = self.class_variable_get(:'@@preferences')
         default ||= options[:default]
@@ -24,6 +25,8 @@ module Flavors
           write_preference(name, value)
         end
       end
+
+      private
 
       def preferences
         self.class_variable_get(:'@@preferences')
