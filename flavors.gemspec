@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["david.yun@polydice.com", "rl@polydice.com"]
   gem.description   = %q{Simple and flexible preferences integration for ActiveRecord models.}
   gem.summary       = %q{Add preferences to ActiveRecord models.}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/polydice/flavors"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
