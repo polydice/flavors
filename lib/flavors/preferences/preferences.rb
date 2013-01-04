@@ -10,7 +10,7 @@ module Flavors
 
     module ClassMethods
       def preference(name, options = {})
-        has_many :preferences, :as => :prefered, :class_name => "Flavors::Preference"
+        has_many :preferences, :as => :prefered, :class_name => "::Flavors::Preference"
 
         preferences = self.class_variable_get(:'@@preferences')
         default ||= options[:default]
