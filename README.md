@@ -1,6 +1,6 @@
 # Flavors
 
-TODO: Write a gem description
+Simple and flexible preferences integration for ActiveRecord models.
 
 ## Installation
 
@@ -18,7 +18,26 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To add preferences to your ActiveRecord model, in your model file:
+
+```
+class User < ActiveRecord::Base
+  preference :receive_email, :default => true
+end
+```
+
+Then you can then use the methods provided by flavors to read / write preferences.
+
+```
+Loading development environment (Rails 3.2.10)
+irb(main):001:0> u = User.create(:email => "foo@bar.com")
+irb(main):002:0> u.notification
+=> true
+irb(main):003:0> u.notification = false
+=> false
+irb(main):004:0> u.notification
+=> false
+```
 
 ## Contributing
 
