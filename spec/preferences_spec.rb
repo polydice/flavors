@@ -6,6 +6,10 @@ describe Flavors::Preferences do
     User.class_eval do
       preference :notification, :default => true
     end
+
+    Post.class_eval do
+      preference :sticky, :default => false
+    end
   end
 
   subject { User.create }
@@ -17,6 +21,12 @@ describe Flavors::Preferences do
   it "should update preference" do
     subject.notification = false
     subject.notification.should == false
+  end
+
+  it "should scope preferences for different classes" do
+    expect {
+      subject.sticky
+    }.to raise_error NoMethodError
   end
 
 end

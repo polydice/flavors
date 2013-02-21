@@ -25,3 +25,4 @@ ActiveRecord::Base.establish_connection(
 
 load File.dirname(__FILE__) + '/support/schema.rb'
 load File.dirname(__FILE__) + '/support/user.rb'
+load File.dirname(__FILE__) + '/support/post.rb'
