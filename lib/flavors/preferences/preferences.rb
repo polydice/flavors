@@ -5,7 +5,7 @@ module Flavors
     extend ::ActiveSupport::Concern
 
     module ClassMethods
-      def preference(name, options = {})
+      def preference(name, options = {}, &callback)
         has_many :preferences, :as => :prefered, :class_name => "::Flavors::Preference"
 
         define_method(name) do
@@ -14,6 +14,7 @@ module Flavors
 
         define_method("#{name}=") do |value|
           write_preference(name, value)
+          callback.call(self, value) if callback
         end
       end
     end

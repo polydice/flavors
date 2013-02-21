@@ -44,4 +44,17 @@ describe Flavors::Preferences do
 
     subject.foo.should be_nil
   end
+
+  it "should invoke callback block" do
+    User.class_eval do
+      def buz; end
+
+      preference :bar do |object, value|
+        object.buz
+      end
+    end
+
+    subject.should_receive(:buz)
+    subject.bar = true
+  end
 end
