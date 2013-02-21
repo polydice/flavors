@@ -29,4 +29,19 @@ describe Flavors::Preferences do
     }.to raise_error NoMethodError
   end
 
+  it "should scope default value for different classes" do
+    Post.class_eval do
+      preference :notification, :default => false
+    end
+
+    subject.notification.should be_true
+  end
+
+  it "should return if nil if no default value defined" do
+    User.class_eval do
+      preference :foo
+    end
+
+    subject.foo.should be_nil
+  end
 end
