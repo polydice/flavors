@@ -57,4 +57,11 @@ describe Flavors::Preferences do
     subject.should_receive(:buz)
     subject.bar = true
   end
+
+  it "should respond to the preference name with question mark" do
+    subject.should respond_to(:notification?)
+    subject.notification?.should == true
+    subject.notification = false
+    subject.notification?.should == false
+  end
 end
