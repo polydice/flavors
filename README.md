@@ -16,6 +16,11 @@ Or install it yourself as:
 
     $ gem install flavors
 
+Generate the migration for the preferences table and migrate the database:
+
+    $ rails generate flavors:migration
+    $ rake db:migrate
+
 ## Usage
 
 To add preferences to your ActiveRecord model, in your model file:
