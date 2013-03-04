@@ -12,6 +12,10 @@ module Flavors
           read_preference(name, options[:default])
         end
 
+        define_method("#{name}?") do
+          read_preference(name, options[:default])
+        end
+
         define_method("#{name}=") do |value|
           write_preference(name, value)
           callback.call(self, value) if callback
