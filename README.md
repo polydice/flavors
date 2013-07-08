@@ -2,6 +2,8 @@
 
 Simple and flexible preferences integration for ActiveRecord models.
 
+[![Build Status](https://secure.travis-ci.org/polydice/flavors.png)](http://travis-ci.org/polydice/flavors)
+
 ## Installation
 
 Add this line to your application's Gemfile:
