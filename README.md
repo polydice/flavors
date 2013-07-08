@@ -3,6 +3,8 @@
 Simple and flexible preferences integration for ActiveRecord models.
 
 [![Build Status](https://secure.travis-ci.org/polydice/flavors.png)](http://travis-ci.org/polydice/flavors)
+[![CodeClimate](https://d3s6mut3hikguw.cloudfront.net/github/polydice/flavors.png)](https://codeclimate.com/github/polydice/flavors)
+
 
 ## Installation
 
