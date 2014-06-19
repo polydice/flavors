@@ -14,38 +14,38 @@ describe Flavors::Preferences do
 
   subject { User.create }
 
-  it "should have a default value" do
-    subject.notification.should == true
+  it "has a default value" do
+    expect(subject.notification).to be_truthy
   end
 
-  it "should update preference" do
+  it "updates preference" do
     subject.notification = false
-    subject.notification.should == false
+    expect(subject.notification).to be_falsy
   end
 
-  it "should scope preferences for different classes" do
+  it "scopes preferences for different classes" do
     expect {
       subject.sticky
     }.to raise_error NoMethodError
   end
 
-  it "should scope default value for different classes" do
+  it "scopes default value for different classes" do
     Post.class_eval do
       preference :notification, :default => false
     end
 
-    subject.notification.should be_truthy
+    expect(subject.notification).to be_truthy
   end
 
-  it "should return if nil if no default value defined" do
+  it "returns if nil if no default value defined" do
     User.class_eval do
       preference :foo
     end
 
-    subject.foo.should be_nil
+    expect(subject.foo).to be_nil
   end
 
-  it "should invoke callback block" do
+  it "invokes callback block" do
     User.class_eval do
       def buz; end
 
@@ -54,14 +54,14 @@ describe Flavors::Preferences do
       end
     end
 
-    subject.should_receive(:buz)
+    expect(subject).to receive(:buz)
     subject.bar = true
   end
 
-  it "should respond to the preference name with question mark" do
-    subject.should respond_to(:notification?)
-    subject.notification?.should == true
+  it "responds to the preference name with question mark" do
+    expect(subject).to respond_to(:notification?)
+    expect(subject).to be_notification
     subject.notification = false
-    subject.notification?.should == false
+    expect(subject).not_to be_notification
   end
 end
