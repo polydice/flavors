@@ -2,6 +2,7 @@
 
 Simple and flexible preferences integration for ActiveRecord models.
 
+[![Gem Version](https://badge.fury.io/rb/flavors.svg)](http://badge.fury.io/rb/flavors)
 [![Build Status](https://travis-ci.org/polydice/flavors.png?branch=master)](https://travis-ci.org/polydice/flavors)
 [![Code Climate](https://codeclimate.com/github/polydice/flavors.png)](https://codeclimate.com/github/polydice/flavors)
 [![Coverage Status](https://coveralls.io/repos/polydice/flavors/badge.png)](https://coveralls.io/r/polydice/flavors)
