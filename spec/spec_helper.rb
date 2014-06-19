@@ -5,8 +5,8 @@ require 'shoulda-matchers'
 require "rails/test_unit/railtie"
 
 RSpec.configure do |config|
-  config.color_enabled = true
-  config.formatter     = 'documentation'
+  config.color     = true
+  config.formatter = 'documentation'
 end
 
 # Define the application and configuration

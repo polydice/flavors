@@ -34,7 +34,7 @@ describe Flavors::Preferences do
       preference :notification, :default => false
     end
 
-    subject.notification.should be_true
+    subject.notification.should be_truthy
   end
 
   it "should return if nil if no default value defined" do
