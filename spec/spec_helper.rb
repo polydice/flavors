@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear!
+
 require 'rspec'
 require 'flavors'
 require 'shoulda-matchers'
