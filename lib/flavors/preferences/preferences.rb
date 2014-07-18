@@ -26,10 +26,8 @@ module Flavors
     def read_preference(name, default = nil)
       if p = self.preferences.where(:name => name).first
         p.value
-      elsif default.present?
-        default
       else
-        nil
+        default
       end
     end
 
