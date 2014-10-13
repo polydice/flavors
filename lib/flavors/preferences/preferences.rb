@@ -1,4 +1,5 @@
 require 'active_support/concern'
+require 'active_support/core_ext/module'
 
 module Flavors
   module Preferences
@@ -20,6 +21,12 @@ module Flavors
           write_preference(name, value)
           callback.call(self, value) if callback
         end
+
+        (@@preferences ||= Set.new).add name
+      end
+
+      def reflections_of_preferences
+        @@preferences.select { |name| self.new.respond_to? name }
       end
     end
 
