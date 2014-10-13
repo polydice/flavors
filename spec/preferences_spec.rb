@@ -14,6 +14,14 @@ describe Flavors::Preferences do
 
   subject { User.create }
 
+  it "returns preferences array" do
+    expect(User.reflections_of_preferences).to eq [:notification]
+  end
+
+  it "scopes preferences for different classes" do
+    expect(Post.reflections_of_preferences).to eq [:sticky]
+  end
+
   it "has a default value" do
     expect(subject.notification).to be_truthy
   end
