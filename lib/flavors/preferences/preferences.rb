@@ -6,8 +6,6 @@ module Flavors
     extend ::ActiveSupport::Concern
 
     module ClassMethods
-      mattr_reader :preferences
-
       def preference(name, options = {}, &callback)
         has_many :preferences, :as => :prefered, :class_name => "::Flavors::Preference"
 
