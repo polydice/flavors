@@ -32,15 +32,14 @@ To add preferences to your ActiveRecord model, in your model file:
 
 ```ruby
 class User < ActiveRecord::Base
-  preference :receive_email, :default => true
+  preference :receive_email, default: true
 end
 ```
 
 Then you can then use the methods provided by flavors to read / write preferences.
 
 ```ruby
-Loading development environment (Rails 3.2.12)
-irb(main):001:0> u = User.create(:email => "foo@bar.com")
+irb(main):001:0> u = User.create(email: "foo@bar.com")
 irb(main):002:0> u.notification
 => true
 irb(main):003:0> u.notification = false
@@ -53,7 +52,7 @@ From 0.2.0, Flavors also supports callback block for preference setter.
 
 ```ruby
 class User < ActiveRecord::Base
-  preference :receive_email, :default => true do |object, value|
+  preference :receive_email, default: true do |object, value|
     puts "#{object.name} sets preference to #{value}"
   end
 end
@@ -62,8 +61,7 @@ end
 When you set preference of instances, the callback block will be invoked.
 
 ```ruby
-Loading development environment (Rails 3.2.12)
-irb(main):001:0> u = User.create(:name => "foo", :email => "foo@bar.com")
+irb(main):001:0> u = User.create(name: "foo", email: "foo@bar.com")
 irb(main):002:0> u.notification = true
 foo sets preference to true
 => true
